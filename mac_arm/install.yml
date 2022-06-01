@@ -1,0 +1,40 @@
+---
+- name: Configure server
+  hosts: server
+  tasks:
+    - name: Install Git
+      homebrew:
+        name: git
+        state: latest
+    - name: Install VisualStudioCode
+      homebrew_cask:
+        name: visual-studio-code
+        state: latest
+    - name: Install Slack
+      homebrew_cask:
+        name: slack
+        state: latest
+    - name: Install GitKraken
+      homebrew_cask:
+        name: gitkraken
+        state: latest
+    - name: Install Terraform
+      homebrew:
+        name: terraform
+        state: latest
+    - name: Install Packer
+      homebrew:
+        name: packer
+        state: latest
+    - name: Install Docker
+      homebrew:
+        name: docker
+        state: latest
+    - name: Install QEMU
+      homebrew:
+        name: qemu
+        state: latest
+    - name: Install UTM
+      homebrew_cask:
+        name: utm
+        state: latest

@@ -1,0 +1,73 @@
+---
+- name: Configure server
+  hosts: server
+  become: True
+  tasks:
+    - name: Update apt-get repo and cache
+      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+    - name: Upgrade all apt packages
+      apt: upgrade=dist force_apt_get=yes
+    - name: Install Git
+      apt: name=git state=present update_cache=yes
+    - name: Add the HashiCorp GPG key
+      apt_key:
+        url: https://apt.releases.hashicorp.com/gpg
+        state: present
+    - name: Add Vagrant Repository
+      apt_repository:
+        repo: deb [arch=amd64] https://apt.releases.hashicorp.com focal main
+        state: present
+    - name: Update apt and install Vagrant
+      apt:
+        name: vagrant
+        state: latest
+        update_cache: true
+    - name: Install Virtualbox
+      apt: name=virtualbox state=present update_cache=yes
+    - name: Install VisualStudioCode dependencies
+      apt: 
+        pkg: 
+        - software-properties-common
+        - apt-transport-https
+        - wget
+    - name: Import the Microsoft GPG key
+      ansible.builtin.apt_key:
+        url: https://packages.microsoft.com/keys/microsoft.asc
+        state: present
+    - name: And enable the Visual Studio Code repository 
+      ansible.builtin.apt_repository:
+        repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+        state: present      
+    - name: Install VisualStudioCode
+      apt: name=code state=present update_cache=yes
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+        state: present
+    - name: Update apt and install docker-ce
+      apt:
+        name: docker-ce
+        state: latest
+        update_cache: true
+    - name: Install Slack
+      community.general.snap:
+        name: slack
+        classic: yes
+    - name: Update apt and install Packer
+      apt:
+        name: packer
+        state: latest
+        update_cache: true
+    - name: Update apt and install Terraform
+      apt:
+        name: terraform
+        state: latest
+        update_cache: true
+    - name: Install GitKraken
+      community.general.snap:
+        name: gitkraken
+        classic : yes
