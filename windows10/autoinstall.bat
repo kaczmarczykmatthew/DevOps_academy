@@ -2,13 +2,13 @@
 
 if "%~1" neq "" goto :%~1
 
-powershell -File %cd%\wsl2.ps1
+powershell -File %HOMEPATH%\Desktop\DevOps_academy-main\windows10\wsl2.ps1
 pause
 call :reboot tools
 goto :eof 
 
 :tools
-powershell -File %HOMEPATH%\Desktop\test\tools.ps1
+powershell -File %HOMEPATH%\Desktop\DevOps_academy-main\windows10\tools.ps1
 
 ECHO "**************"
 ECHO "Install Docker"
@@ -17,7 +17,6 @@ ECHO "**************"
 wsl sudo apt install apt-transport-https ca-certificates curl software-properties-common
 wsl curl -fsSL https://download.docker.com/linux/ubuntu/gpg ^| sudo apt-key add -
 wsl sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-wsl sudo apt-cache policy docker-ce
 wsl sudo apt install docker-ce
 wsl sudo usermod -aG docker ${USER}
 
@@ -54,7 +53,7 @@ call :reboot finish
 goto :eof
 
 :finish
-powershell -Command "& {Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('DevOps academy components installation is complited', 'DevOps academy', 'OK', [System.Windows.Forms.MessageBoxIcon]::Information);}"
+powershell -Command "& {Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('DevOps academy components installation is completed', 'DevOps academy', 'OK', [System.Windows.Forms.MessageBoxIcon]::Information);}"
 goto :eof
 
 :reboot

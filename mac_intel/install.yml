@@ -30,9 +30,9 @@
       homebrew:
         name: docker
         state: latest
-    - name: Install QEMU
-      homebrew:
-        name: qemu
+    - name: Install Virtualbox
+      homebrew_cask:
+        name: virtualbox
         state: latest
     - name: Install Vagrant
       homebrew_cask:
