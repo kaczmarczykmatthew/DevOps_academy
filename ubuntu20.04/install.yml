@@ -34,7 +34,7 @@
       ansible.builtin.apt_key:
         url: https://packages.microsoft.com/keys/microsoft.asc
         state: present
-    - name: And enable the Visual Studio Code repository 
+    - name: Enable the Visual Studio Code repository 
       ansible.builtin.apt_repository:
         repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
         state: present      
@@ -48,7 +48,7 @@
       apt_repository:
         repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
         state: present
-    - name: Update apt and install docker-ce
+    - name: Update apt and install Docker
       apt:
         name: docker-ce
         state: latest
