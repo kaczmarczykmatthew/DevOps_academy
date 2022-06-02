@@ -28,7 +28,7 @@ echo""
 echo""
 echo "********************* Executing Ansible *********************"
 echo""
-	ansible-playbook install.yml -vv
+	ansible-playbook install.yml -v
 echo""
 echo "************************************************"
 echo "************************************************"
