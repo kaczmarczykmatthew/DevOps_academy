@@ -23,7 +23,7 @@ echo""
 echo "********************* Installing Ansible *********************"
 echo""
 	add-apt-repository --yes --update ppa:ansible/ansible
-	apt install software-properties-common
+	apt install software-properties-common ansible
 	ansible-galaxy collection install community.general
 echo""
 echo "********************* Executing Ansible *********************"
