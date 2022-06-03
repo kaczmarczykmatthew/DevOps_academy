@@ -1,7 +1,7 @@
 Extract all to you Desktop (%HOMEPATH%\Desktop\DevOps_academy-main)
 Run as administrator autoinstall.bat (%HOMEPATH%\Desktop\DevOps_academy-main\windows10\autoinstall.bat)
 
-In first part WSL2 will be installed just wait for linux window to pop out. Add new user and password than you can close linx window and press any key in the script window.
+In first part WSL2 will be installed just wait for linux window to pop out. Add new user and password than you can close linux window and press any key in the script window.
 After login the script will continue install.
 There will be some actions needed from your site. Agree for all the install and write linux password for sudo rights.
 The system will reboot twice.
