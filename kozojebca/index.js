@@ -10,7 +10,7 @@ const client = new Client({
 		            GatewayIntentBits.MessageContent,
 		        ],
 })
-// Terminal message "Ready! Logged in as tag variable"
+// Terminal message "Ready! Logged in as discord tag variable"
 client.once(Events.ClientReady, readyClient => {
 		console.log(`Ready! Logged in as ${readyClient.user.tag}`);
 
