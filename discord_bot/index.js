@@ -18,7 +18,7 @@ client.once(Events.ClientReady, readyClient => {
 // Create a new reply message
 client.on('messageCreate', message => {
 	    if (message.content === 'test') {
-		message.reply('Spierdalaj!');
+		message.reply('działa!');
 	        	}
 })
 
