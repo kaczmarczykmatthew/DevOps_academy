@@ -1,7 +1,8 @@
-const { Client, GatewayIntentBits } = require('discord.js')
-require('dotenv/config')
+// Require the necessary discord.js classes
+const { Client, Events, GatewayIntentBits } = require('discord.js');
+const { token } = require('./config.json');
 
-
+// Create a new client instance
 const client = new Client({
 	    intents: [
 		            GatewayIntentBits.Guilds,
@@ -10,14 +11,17 @@ const client = new Client({
 		        ],
 })
 
-client.on('ready', () => {
-	    console.log('The bot is ready')
+client.once(Events.ClientReady, readyClient => {
+		console.log(`Ready! Logged in as ${readyClient.user.tag}`);
+
 })
 
 client.on('messageCreate', message => {
 	    if (message.content === 'test') {
-		message.reply('Spierdalaj!')
-		        }
+		message.reply('Spierdalaj!');
+	        	}
 })
 
-client.login(process.env.TOKEN)
+// Log in to Discord with your client's token
+client.login(token);
+
