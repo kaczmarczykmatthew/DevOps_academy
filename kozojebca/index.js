@@ -15,7 +15,7 @@ client.once(Events.ClientReady, readyClient => {
 		console.log(`Ready! Logged in as ${readyClient.user.tag}`);
 
 })
-
+// Create a new reply message
 client.on('messageCreate', message => {
 	    if (message.content === 'test') {
 		message.reply('Spierdalaj!');
