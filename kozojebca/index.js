@@ -10,7 +10,7 @@ const client = new Client({
 		            GatewayIntentBits.MessageContent,
 		        ],
 })
-
+// terminal message "Ready! Logged in as tag variable"
 client.once(Events.ClientReady, readyClient => {
 		console.log(`Ready! Logged in as ${readyClient.user.tag}`);
 
