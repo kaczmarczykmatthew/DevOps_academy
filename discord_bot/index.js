@@ -33,7 +33,7 @@ client.on('messageCreate', message => {
 
 //})
 // Create /help and /user <username> query
-client.on('interactionCreate', (interaction) => {
+client.on('interactionCreate', interaction => {
 	if (!interaction.isChatInputCommand()) return;
 	if (interaction.commandName === 'help') {
 		interaction.reply('```1. Use /user <username> to check when user was last in the voice channel \n2. To Do\n3. To Do\n4. To Do\n5. To Do```');
